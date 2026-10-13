@@ -1,0 +1,214 @@
+@import url("https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700&display=swap");
+
+:root {
+  font-family: "DM Sans", sans-serif;
+  color: #f7f5f0;
+  background: #101411;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-optical-sizing: auto;
+  font-weight: 400;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  min-width: 320px;
+  min-height: 100vh;
+  margin: 0;
+}
+
+.app {
+  position: relative;
+  display: grid;
+  min-height: 100vh;
+  place-items: center;
+  overflow: hidden;
+  padding: 32px 20px;
+  background:
+    radial-gradient(ellipse at 50% 0%, rgb(143 166 105 / 13%), transparent 48%),
+    radial-gradient(ellipse at 0% 100%, rgb(100 117 82 / 10%), transparent 42%),
+    #101411;
+}
+
+.credit {
+  position: fixed;
+  right: 22px;
+  bottom: 18px;
+  z-index: 2;
+  margin: 0;
+  color: #9ca198;
+  font-family: "DM Mono", monospace;
+  font-size: 11px;
+  letter-spacing: 0.04em;
+}
+
+.app::before,
+.app::after {
+  position: absolute;
+  width: 380px;
+  height: 380px;
+  border: 1px solid rgb(225 232 211 / 5%);
+  border-radius: 50%;
+  content: "";
+  pointer-events: none;
+}
+
+.app::before {
+  top: -245px;
+  right: -100px;
+}
+
+.app::after {
+  bottom: -290px;
+  left: -130px;
+  width: 480px;
+  height: 480px;
+}
+
+.clock-card {
+  position: relative;
+  z-index: 1;
+  width: min(100%, 680px);
+  padding: 68px 56px 40px;
+  border: 1px solid rgb(230 234 220 / 12%);
+  border-radius: 16px;
+  background: linear-gradient(145deg, rgb(33 39 33 / 96%), rgb(24 29 25 / 98%));
+  box-shadow: 0 32px 90px rgb(0 0 0 / 38%), inset 0 1px rgb(255 255 255 / 3%);
+  text-align: center;
+}
+
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  color: #a8b39a;
+  font-family: "DM Mono", monospace;
+  font-size: 11px;
+  letter-spacing: 0.18em;
+}
+
+.live-indicator {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #b6cd8e;
+  box-shadow: 0 0 12px rgb(182 205 142 / 60%);
+}
+
+.clock-card h1 {
+  margin: 24px 0 8px;
+  color: #f0efe8;
+  font-family: Manrope, sans-serif;
+  font-size: clamp(25px, 5vw, 34px);
+  font-weight: 500;
+  letter-spacing: -0.045em;
+}
+
+.intro {
+  margin: 0;
+  color: #9ca198;
+  font-size: 14px;
+}
+
+.clock {
+  display: flex;
+  align-items: baseline;
+  justify-content: center;
+  gap: 13px;
+  margin: 55px 0 26px;
+  color: #e9eddf;
+  font-family: "DM Mono", monospace;
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+
+.time {
+  font-size: clamp(58px, 13vw, 104px);
+  font-weight: 400;
+  letter-spacing: -0.09em;
+  line-height: 1;
+}
+
+.seconds {
+  min-width: 2ch;
+  color: #b4c89a;
+  font-size: clamp(24px, 5vw, 36px);
+  letter-spacing: -0.06em;
+}
+
+.period {
+  color: #98a18f;
+  font-size: 15px;
+  letter-spacing: 0.05em;
+}
+
+.date-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  color: #c4c9bc;
+  font-size: 15px;
+}
+
+.calendar-icon {
+  color: #b4c89a;
+  font-size: 17px;
+}
+
+.card-footer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+  margin-top: 57px;
+  color: #747c71;
+  font-family: "DM Mono", monospace;
+  font-size: 9px;
+  letter-spacing: 0.16em;
+}
+
+.footer-line {
+  width: 32px;
+  height: 1px;
+  background: #4b5548;
+}
+
+@media (max-width: 520px) {
+  .clock-card {
+    padding: 48px 20px 30px;
+  }
+
+  .clock {
+    gap: 9px;
+    margin-top: 46px;
+  }
+
+  .card-footer {
+    margin-top: 45px;
+    gap: 9px;
+    font-size: 8px;
+  }
+
+  .footer-line {
+    width: 20px;
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .live-indicator {
+    animation: pulse 2.4s ease-in-out infinite;
+  }
+
+  @keyframes pulse {
+    50% {
+      opacity: 0.5;
+      box-shadow: 0 0 4px rgb(182 205 142 / 35%);
+    }
+  }
+}
